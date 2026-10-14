@@ -1,0 +1,54 @@
+{
+    "name": "fixstacks/zero",
+    "description": "Zero for Magento Open Source: the storefront theme and every Zero module, in one require.",
+    "type": "metapackage",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Roman Pasichnyk"
+        }
+    ],
+    "homepage": "https://fixstacks.com/zero",
+    "keywords": [
+        "magento",
+        "magento2",
+        "magento-open-source",
+        "zero",
+        "theme",
+        "htmx",
+        "storefront"
+    ],
+    "require": {
+        "fixstacks/theme-frontend-zero": "^1.0",
+        "fixstacks/module-zero-core": "^1.0",
+        "fixstacks/module-zero-checkout": "^1.0",
+        "fixstacks/module-zero-banner": "^1.0",
+        "fixstacks/module-zero-cms": "^1.0",
+        "fixstacks/module-zero-blog": "^1.0",
+        "fixstacks/module-zero-search": "^1.0",
+        "fixstacks/module-zero-layered-navigation": "^1.0",
+        "fixstacks/module-zero-brands": "^1.0",
+        "fixstacks/module-zero-seo": "^1.0",
+        "fixstacks/module-zero-reviews": "^1.0",
+        "fixstacks/module-zero-stock-alert": "^1.0",
+        "fixstacks/module-zero-promotions": "^1.0",
+        "fixstacks/module-zero-reward-points": "^1.0",
+        "fixstacks/module-zero-gift-card": "^1.0",
+        "fixstacks/module-zero-quote-request": "^1.0",
+        "fixstacks/module-zero-abandoned-cart": "^1.0",
+        "fixstacks/module-zero-product-feed": "^1.0",
+        "fixstacks/module-zero-consent": "^1.0",
+        "fixstacks/module-zero-google-analytics": "^1.0",
+        "fixstacks/module-zero-social-login": "^1.0",
+        "fixstacks/module-zero-instant-navigation": "^1.0",
+        "fixstacks/module-zero-mail": "^1.0",
+        "fixstacks/module-zero-paypal": "^1.0",
+        "fixstacks/module-zero-stripe": "^1.0",
+        "fixstacks/module-zero-braintree": "^1.0",
+        "fixstacks/module-zero-authorize-net": "^1.0"
+    }
+}
