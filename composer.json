@@ -2,7 +2,7 @@
     "name": "fixstacks/zero",
     "description": "Zero for Magento Open Source: the storefront theme and every Zero module, in one require.",
     "type": "metapackage",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
