@@ -46,11 +46,14 @@ Each package installs on its own with `composer require`; the theme needs
 | Catalog | [`fixstacks/module-zero-seo`](https://github.com/Fixstacks/module-zero-seo) | Structured data (schema.org JSON-LD), hreflang, canonical URLs and meta descriptions |
 | Catalog | [`fixstacks/module-zero-reviews`](https://github.com/Fixstacks/module-zero-reviews) | Product reviews with photos, "verified purchase" and a Google product reviews feed |
 | Catalog | [`fixstacks/module-zero-stock-alert`](https://github.com/Fixstacks/module-zero-stock-alert) | "Tell me when it's back" on sold-out products, for any visitor, and one email when it is |
+| Catalog | [`fixstacks/module-zero-size-chart`](https://github.com/Fixstacks/module-zero-size-chart) | Size guides on product pages: tables made in the admin, shown by category or per product in a dialog |
 | Selling | [`fixstacks/module-zero-promotions`](https://github.com/Fixstacks/module-zero-promotions) | More cart price rule actions: "every Nth item, the cheapest, X% off" and a free gift |
 | Selling | [`fixstacks/module-zero-reward-points`](https://github.com/Fixstacks/module-zero-reward-points) | Reward points: customers earn them on paid orders and pay part of an order with them |
 | Selling | [`fixstacks/module-zero-gift-card`](https://github.com/Fixstacks/module-zero-gift-card) | Gift cards: sold as a product, emailed once paid, spent at checkout like money |
 | Selling | [`fixstacks/module-zero-quote-request`](https://github.com/Fixstacks/module-zero-quote-request) | Request a quote from the cart or a product, and "price on request" products |
 | Selling | [`fixstacks/module-zero-abandoned-cart`](https://github.com/Fixstacks/module-zero-abandoned-cart) | One reminder email for a cart left with items in it |
+| Selling | [`fixstacks/module-zero-delivery-date`](https://github.com/Fixstacks/module-zero-delivery-date) | A delivery date and time window picked in checkout, kept on the order and shown everywhere the order is |
+| Selling | [`fixstacks/module-zero-quick-order`](https://github.com/Fixstacks/module-zero-quick-order) | A quick order page: SKUs and quantities, a pasted list or a CSV file, straight into the cart |
 | Marketing | [`fixstacks/module-zero-product-feed`](https://github.com/Fixstacks/module-zero-product-feed) | The catalog as XML feeds for Google Merchant Center, Hotline, Rozetka and Prom.ua, one per store view |
 | Marketing | [`fixstacks/module-zero-consent`](https://github.com/Fixstacks/module-zero-consent) | A cookie consent banner and settings for every tracker (GDPR), Global Privacy Control and "Do Not Sell" (CCPA) |
 | Marketing | [`fixstacks/module-zero-google-analytics`](https://github.com/Fixstacks/module-zero-google-analytics) | GA4 e-commerce events with gtag.js or Google Tag Manager, with Consent Mode v2 |
@@ -59,6 +62,7 @@ Each package installs on its own with `composer require`; the theme needs
 | Payments | [`fixstacks/module-zero-stripe`](https://github.com/Fixstacks/module-zero-stripe) | Stripe cards and wallets (Payment Element) for Zero Checkout |
 | Payments | [`fixstacks/module-zero-braintree`](https://github.com/Fixstacks/module-zero-braintree) | Magento's Braintree payment (cards, PayPal, Apple Pay, Google Pay) inside Zero Checkout |
 | Payments | [`fixstacks/module-zero-authorize-net`](https://github.com/Fixstacks/module-zero-authorize-net) | Authorize.Net cards (Accept.js) for Zero Checkout |
+| Payments | [`fixstacks/module-zero-amazon-pay`](https://github.com/Fixstacks/module-zero-amazon-pay) | Amazon Pay for Zero Checkout: the customer pays on Amazon's page after placing the order, no Amazon script on the shop's pages |
 | Operations | [`fixstacks/module-zero-mail`](https://github.com/Fixstacks/module-zero-mail) | Email transport (Magento's own or Amazon SES), an email log with Resend, one sender, a test email |
 
 ## For developers
