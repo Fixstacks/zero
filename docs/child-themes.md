@@ -3,7 +3,10 @@
 Zero/default is built so that most rebranding is a list of CSS variables. A
 child theme inherits every template, layout and asset from Zero/default and
 replaces only what it names. A complete, working example ships next to the
-parent: `app/design/frontend/Zero/example` (see its README). Making third-party
+parent: `app/design/frontend/Zero/example` (see its README). Four finished
+looks for different kinds of business, each with a demo store
+(Zero_DemoStores): `Zero/noir` (luxury), `Zero/pulse` (electronics),
+`Zero/bloom` (beauty) and `Zero/forge` (tools and trade). Making third-party
 extensions work on Zero is covered in [extensions.md](extensions.md); the reusable
 components are in [components.md](components.md) and live at `/zero/ui/`.
 
@@ -94,12 +97,62 @@ A dark variant, `zero-dark`, is defined too; it applies to an element with
 
 | Token | Zero/default |
 | --- | --- |
-| `--font-sans` | DM Sans (self-hosted, variable 100–1000) — all text |
-| `--font-display` | Instrument Serif italic — only `.font-display` accent words |
+| `--font-sans` | DM Sans (self-hosted, variable 100–1000), then `DM Sans Fallback` — all text |
+| `--font-display` | Instrument Serif italic, then `Instrument Serif Fallback` — only `.font-display` accent words |
 
-To use your own webfont, add an `@font-face` in `theme-overrides.css` with the
-file in the child's `web/fonts/`, then point `--font-sans` at it. Include the
-font's license file if it requires one (SIL OFL does).
+Every Zero theme loads its fonts the same way; keep to it in a child theme,
+it is what keeps the first paint clean (no text that jumps or re-renders):
+
+1. **One family for everything, at most one accent face.** A store needs a
+   body font; an accent face (headings, the hero's italic words) is optional.
+   For a single family set `--font-display: var(--font-sans)`.
+2. **Self-hosted, subset, variable.** `woff2` files in the child's `web/fonts/`,
+   one file per script (`latin`, `latin-ext`, `cyrillic`, …) with a
+   `unicode-range`, so a visitor downloads only the script the page uses; one
+   variable file instead of a file per weight when the family has one. No
+   Google Fonts `<link>`: it is a third origin before the first paint, and in
+   the EU a privacy question. Put the license file next to the fonts (SIL OFL
+   requires it).
+3. **`font-display: optional` on every `@font-face`, with a metric-matched
+   fallback.** The font is preloaded, so it is normally in before the CSS and
+   the text paints once, in the right font. When it is late (a slow first
+   visit) the page keeps the fallback for that visit and never swaps mid-read;
+   the next page has the font from the cache. The fallback is the system font
+   scaled to the webfont's metrics, so the text takes the same room either
+   way. Generate it:
+
+   ```sh
+   pip3 install fonttools brotli   # once
+   python3 dev/tools/font-fallback.py app/design/frontend/Zero/<theme>/web/fonts/<family>-latin.woff2 --match arial
+   ```
+
+   `--match` is the system font to scale: `arial` for a sans (Roboto on
+   Android is close), `arial-narrow` for a condensed face, `georgia` or
+   `georgia-italic` for a serif, `times`. Paste the printed `@font-face`
+   after the family's own faces and put the fallback name right after the
+   family in the stack: `"Space Grotesk", "Space Grotesk Fallback", system-ui, sans-serif`.
+4. **Preload only what the first screen needs**: the body font's latin
+   regular file and the heading face the hero uses, three files at most, in
+   `Magento_Theme/layout/default_head_blocks.xml`; remove the parent's
+   preloads the theme doesn't use (they compete with the LCP image):
+
+   ```xml
+   <head>
+       <remove src="fonts/dm-sans-latin-400-700.woff2"/>
+       <remove src="fonts/instrument-serif-italic-400.woff2"/>
+       <link src="fonts/space-grotesk-latin-400-700.woff2" rel="preload" as="font" type="font/woff2" crossorigin="anonymous"/>
+       <css src="css/theme-overrides.css"/>
+   </head>
+   ```
+
+To replace the font in a child theme: drop the `woff2` files and the license
+into `web/fonts/`, write the `@font-face` rules (with `font-display: optional`
+and the `unicode-range` per file) and the generated fallback at the top of
+`theme-overrides.css`, point `--font-sans` (and `--font-display`) at the new
+stack, and set the preloads as above. `Zero/usa` (one family, one file) and
+`Zero/forge` (two families, static cuts per weight) are the two shapes to
+copy. Check with the fonts blocked (DevTools > Network > block `*.woff2`):
+the page must look the same size, nothing moves.
 
 ### Type sizes
 
@@ -108,7 +161,7 @@ Tailwind's scale (`--text-xs` 0.75rem, `--text-sm` 0.875rem, `--text-base`
 
 | Token | Zero/default | Used for |
 | --- | --- | --- |
-| `--text-3xs` | 0.625rem | Stock / SKU row on the product page |
+| `--text-3xs` | 0.6875rem | Stock / SKU row on the product page |
 | `--text-2xs` | 0.6875rem | Eyebrow labels, badges |
 | `--text-label` | 0.8125rem | Form labels, meta text, review actions |
 | `--text-md` | 0.9375rem | Review body |

@@ -18,7 +18,7 @@ a new tab" there.
 | Buttons | DaisyUI `btn` variants; icon-only buttons with `aria-label` |
 | Form fields | Labelled inputs, select, textarea, checkbox, radio group; required and error states |
 | Messages | Magento's `div.message` success / info / warning / error |
-| Badges | Product badges (Sale, New) and DaisyUI badges |
+| Badges | Product badges (New and Sale; the product's own, Only a few left and Free shipping with Zero_ProductLabels; each on or off in Stores > Configuration > Zero > Theme > Product Badges) and DaisyUI badges |
 | Accordion | Native `<details>`; a shared `name` keeps one open |
 | Tabs | DaisyUI radio tabs, no JavaScript |
 | Dialog | Native `<dialog>`, opened by `data-dialog-open`, closed by `<form method="dialog">` |

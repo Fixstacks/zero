@@ -6,6 +6,8 @@ JavaScript stack (`x-magento-init`, `data-mage-init`, UI components) renders
 on Zero but its interactive parts do nothing. Its Tailwind classes are also
 missing until the theme build knows about its templates.
 
+(The build itself, every command and file, when to rerun it: [build.md](build.md).)
+
 There are three ways to make an extension work. Pick one per extension.
 
 | Situation | What to do |
@@ -208,6 +210,7 @@ fine. Events the theme fires: `zero:session-ready`, `cart:updated`,
 | Product cards in a list of your own | `Magento_Catalog::product/list.phtml` with its `card_cache` argument (`Zero\Core\ViewModel\ProductCardCache`): one block cache entry per card |
 | Responsive product images (`<picture>`, WebP) | `Zero\Core\Model\Image\ProductPicture::getSrcsets()`; `bin/magento zero:images:warm` after an import |
 | Prices outside a price box (badges, analytics) | `Zero\Core\Model\Pricing\CachedPrices::get()` |
+| A badge on product cards and pages | `Zero\Core\Api\ProductBadgeProviderInterface`, registered as a `providers` item of `Zero\Core\ViewModel\ProductBadges` (see Zero_ProductLabels) |
 | A storefront tracker that respects cookie consent | `Zero\Consent\Model\Trackers` (di.xml) and `window.zeroConsent.get()` |
 | Sending email, SES, the Email Log | nothing to do: `Zero_Mail` wraps Magento's transport |
 

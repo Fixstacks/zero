@@ -72,3 +72,13 @@ with inline code are blocked by the strict CSP.
 requests to Google blocked. It covers the consent flow, lists, product,
 cart, checkout steps, and a purchase sent once. It's skipped where the
 module is off.
+
+## Other trackers on the same events
+
+Zero_MarketingPixels (Meta, TikTok, Pinterest, Microsoft Clarity) uses these
+events too: analytics.js dispatches each one as `zero:analytics`
+({ name, params }) and keeps them in `window.zeroAnalytics`. A module that
+needs them registers an `Zero\GoogleAnalytics\Api\EventListenerInterface`
+with `Zero\GoogleAnalytics\Model\Config` (di.xml, argument `listeners`):
+while it is active the events are collected, and analytics.js runs without
+loading Google's tag when Google Analytics itself is off.
