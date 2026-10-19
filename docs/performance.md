@@ -127,11 +127,34 @@ modules may run a little above, but a jump means something is wrong.
    in `dev/tests/zero-e2e`) for layout shifts, elements outside the screen
    and tap targets at four sizes; **the e2e suite** for the rest.
 
+## What PageSpeed Insights cannot tell you
+
+Lighthouse (and so PageSpeed Insights) loads the page in a headless tab whose
+frames are never shown. About 0.43 s after navigation Chrome's compositor
+sends a burst of empty frames for the still-empty document; the display
+never draws them, and from then on the renderer gets one frame opportunity
+per second (viz throttles clients with undrawn frames). A page whose first
+content frame is ready before that burst paints at ~0.45 s; one that is
+still waiting for its stylesheet paints at the next opportunity, ~1.5 s, and
+at ~2.5 s if that first frame cannot be laid out, painted, committed and
+rasterised within one vsync. Lighthouse's simulated Speed Index is 1.4 × the
+observed one, so these steps show up as Speed Index ≈ 2.3 s or ≈ 4.2 s with
+FCP, LCP, TBT and CLS unchanged.
+
+This is a property of the measuring tab, not of the page: the same Chrome
+driven by Playwright paints the Zero home page at 0.5–0.6 s. Every site is
+measured this way; sites with inline critical CSS pay it in Speed Index
+rather than FCP. Before changing the theme for a Speed Index jump, read
+`observedFirstPaint` in the Lighthouse JSON (`--output=json`): a value of
+~1.5 s or ~2.5 s with `load` at ~0.6 s is this artefact. Real-user data
+(CrUX, or WebPageTest on a real device) is the number to trust for Speed
+Index; the rest of the PSI report stays meaningful.
+
 ## When a number drops
 
 | Symptom | Look at |
 | --- | --- |
-| Speed Index up, FCP unchanged | Something repaints after the first paint: a carousel advancing, a font swapping (`font-display` not `optional`, or a face without a fallback), a banner or bar inserted after load, a fragment fetched on load above the fold, an image without dimensions loading in. |
+| Speed Index up, FCP unchanged | First `observedFirstPaint` in the Lighthouse JSON (see above). If it is not ~1.5/2.5 s: something repaints after the first paint — a carousel advancing, a font swapping (`font-display` not `optional`, or a face without a fallback), a banner or bar inserted after load, a fragment fetched on load above the fold, an image without dimensions loading in. |
 | LCP up | The hero or product image: too big, not WebP, discovered late (a CSS background, a lazy attribute on the first image), or a preload missing. |
 | TBT up | A new script: open the treemap; a third-party tag loaded before consent is the usual find. |
 | CLS above 0 | An image or embed without a size; a font without a metric-matched fallback; content inserted above the fold. |
