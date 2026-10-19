@@ -2,7 +2,7 @@
     "name": "fixstacks/zero",
     "description": "Zero for Magento Open Source: the storefront theme and the modules every store needs (checkout, search, SEO, content, mail, payments), in one require.",
     "type": "metapackage",
-    "version": "1.2.1",
+    "version": "1.3.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
@@ -23,24 +23,24 @@
         "storefront"
     ],
     "require": {
-        "fixstacks/theme-frontend-zero": "^1.2",
-        "fixstacks/module-zero-core": "^1.2",
-        "fixstacks/module-zero-checkout": "^1.2",
-        "fixstacks/module-zero-instant-navigation": "^1.2",
-        "fixstacks/module-zero-search": "^1.2",
-        "fixstacks/module-zero-seo": "^1.2",
-        "fixstacks/module-zero-cms": "^1.2",
-        "fixstacks/module-zero-banner": "^1.2",
-        "fixstacks/module-zero-blog": "^1.2",
-        "fixstacks/module-zero-mail": "^1.2",
-        "fixstacks/module-zero-abandoned-cart": "^1.2",
-        "fixstacks/module-zero-stripe": "^1.2",
-        "fixstacks/module-zero-braintree": "^1.2",
-        "fixstacks/module-zero-paypal": "^1.2",
-        "fixstacks/module-zero-adyen": "^1.2",
-        "fixstacks/module-zero-klarna": "^1.2",
-        "fixstacks/module-zero-mollie": "^1.2",
-        "fixstacks/module-zero-amazon-pay": "^1.2",
-        "fixstacks/module-zero-authorize-net": "^1.2"
+        "fixstacks/theme-frontend-zero": "^1.3",
+        "fixstacks/module-zero-core": "^1.3",
+        "fixstacks/module-zero-checkout": "^1.3",
+        "fixstacks/module-zero-instant-navigation": "^1.3",
+        "fixstacks/module-zero-search": "^1.3",
+        "fixstacks/module-zero-seo": "^1.3",
+        "fixstacks/module-zero-cms": "^1.3",
+        "fixstacks/module-zero-banner": "^1.3",
+        "fixstacks/module-zero-blog": "^1.3",
+        "fixstacks/module-zero-mail": "^1.3",
+        "fixstacks/module-zero-abandoned-cart": "^1.3",
+        "fixstacks/module-zero-stripe": "^1.3",
+        "fixstacks/module-zero-braintree": "^1.3",
+        "fixstacks/module-zero-paypal": "^1.3",
+        "fixstacks/module-zero-adyen": "^1.3",
+        "fixstacks/module-zero-klarna": "^1.3",
+        "fixstacks/module-zero-mollie": "^1.3",
+        "fixstacks/module-zero-amazon-pay": "^1.3",
+        "fixstacks/module-zero-authorize-net": "^1.3"
     }
 }
