@@ -82,7 +82,7 @@ of `fixstacks/zero`.
 | Payments | [`fixstacks/module-zero-adyen`](https://github.com/Fixstacks/module-zero-adyen) | ✓ | Payment on Adyen's hosted page for Zero Checkout: cards, wallets and every local method switched on in the Adyen account; HMAC-signed webhooks |
 | Payments | [`fixstacks/module-zero-klarna`](https://github.com/Fixstacks/module-zero-klarna) | ✓ | Klarna on its Hosted Payment Page for Zero Checkout: pay now, pay later or in instalments; authorised at checkout, captured on invoice |
 | Payments | [`fixstacks/module-zero-mollie`](https://github.com/Fixstacks/module-zero-mollie) | ✓ | Payment on Mollie's page for Zero Checkout: iDEAL, Bancontact, cards, SEPA, Klarna and every method switched on for the order's currency |
-| Operations | [`fixstacks/module-zero-mail`](https://github.com/Fixstacks/module-zero-mail) | ✓ | Email transport (Magento's own or Amazon SES), an email log with Resend, one sender, a test email |
+| Operations | [`fixstacks/module-zero-mail`](https://github.com/Fixstacks/module-zero-mail) | ✓ | Email transport (Magento's own or Amazon SES), sent now or through a queue (RabbitMQ or the database), an email log with Resend, one sender, a test email |
 | Operations | [`fixstacks/module-zero-redirects`](https://github.com/Fixstacks/module-zero-redirects) |  | A log of the storefront's 404s, most asked for first, and a 301 redirect for each in one click, with a suggested target from the catalog |
 
 ## For developers
