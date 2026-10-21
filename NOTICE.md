@@ -1,4 +1,4 @@
-# fixstacks/zero — licensing
+# zerofront/zero — licensing
 
 Copyright © 2026 Roman Pasichnyk.
 

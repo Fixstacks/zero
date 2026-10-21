@@ -117,7 +117,7 @@ modules may run a little above, but a jump means something is wrong.
 2. **Lighthouse locally with real throttling**, for the filmstrip:
 
    ```sh
-   npx lighthouse https://zero.fixstacks.com/ --only-categories=performance --throttling-method=devtools --view
+   npx lighthouse https://demo.zerofront.dev/ --only-categories=performance --throttling-method=devtools --view
    ```
 
    In the report open "View Treemap" for the JavaScript and the filmstrip

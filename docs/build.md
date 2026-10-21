@@ -26,7 +26,7 @@ in production; in developer mode it links or copies files on demand).
 ## Commands
 
 All of them run in the theme folder, `app/design/frontend/Zero/default`
-(or `vendor/fixstacks/theme-frontend-zero` in a Composer install), and need
+(or `vendor/zerofront/theme-frontend-zero` in a Composer install), and need
 Node 20+ and `npm ci` once.
 
 | Command | What it does | When |
@@ -159,7 +159,7 @@ overrides; `node_modules` is stripped. On the server
 the folders in place the deploy had kept day-old files while reporting
 success, so they go first.
 
-The public Composer packages work the other way round: `fixstacks/theme-
+The public Composer packages work the other way round: `zerofront/theme-
 frontend-zero` ships `web/css/app.css` already built (the export runs the
 build before packing), so `composer require` gives a working store with no
 Node at all. A store that adds, enables or disables a module with styles
